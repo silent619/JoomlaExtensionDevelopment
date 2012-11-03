@@ -665,6 +665,7 @@ plugins/xmlrpc/blogger.php
 plugins/xmlrpc/blogger.xml
 plugins/xmlrpc/index.html
 plugins/xmlrpc/joomla.php
+plugins/system
 README.txt
 robots.txt
 templates/atomic/*
