@@ -47,8 +47,8 @@ class PlgSystemShowpath extends JPlugin
 			require_once(__DIR__.'/class_override/modules.php');
 			
 			//get the component path and output
-			$pathArr = self::getComponentPath();
-			$pathStr = self::getPath($pathArr);
+			$pathArr = $this->getComponentPath();
+			$pathStr = $this->getPath($pathArr);
 					
 			echo '<pre>Component View path: ' . $pathStr .'</pre>';
 		}
@@ -90,7 +90,7 @@ class PlgSystemShowpath extends JPlugin
 		jimport('joomla.filesystem.folder');
 		
 		// set the path string
-		$pathString = self::makePath($path);
+		$pathString = $this->makePath($path);
 		
 		// check for override
 		if (JFolder::exists('templates/'.$tmpl.'/html/'.$pathString))
@@ -126,7 +126,7 @@ class PlgSystemShowpath extends JPlugin
 		// get current template
 		$tmpl = $app->getTemplate();
 		
-		$pathstring = self::makePath($path);
+		$pathstring = $this->makePath($path);
 			
 		if (self::isOverridden($path))
 		{

@@ -36,7 +36,7 @@ class JDocumentRendererModule extends JDocumentRenderer
 		
 		// call the display path function
 		// NOT core function! 
-		$path =  self::displayModPaths($module);
+		$path =  $this->displayModPaths($module);
 	
 		
 		if (!is_object($module))
@@ -139,7 +139,7 @@ class JDocumentRendererModule extends JDocumentRenderer
 		$tmpl = $app->getTemplate();
 		
 		// check for override
-		if (self::isOverridden($name))
+		if ($this->isOverridden($name))
 		{
 			$path = 'templates/'.$tmpl.'/html/'.$name;
 		}
