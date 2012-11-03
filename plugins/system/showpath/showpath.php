@@ -39,9 +39,6 @@ class PlgSystemShowpath extends JPlugin
 			return true;
 		}
 		
-		if (!$app->isAdmin())
-		{
-		
 			//override the core module classes
 			require_once(__DIR__.'/class_override/module.php');
 			require_once(__DIR__.'/class_override/modules.php');
@@ -51,7 +48,7 @@ class PlgSystemShowpath extends JPlugin
 			$pathStr = $this->getPath($pathArr);
 					
 			echo '<pre>Component View path: ' . $pathStr .'</pre>';
-		}
+		
 		return true;
 	}
 	
