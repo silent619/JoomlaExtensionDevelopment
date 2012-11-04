@@ -159,7 +159,7 @@ class JDocumentRendererModule extends JDocumentRenderer
 		// get current template
 		$tmpl = $app->getTemplate();
 		
-		if (JFolder::exists('templates/'.$tmpl.'/html/'.$name))
+		if (is_dir('templates/'.$tmpl.'/html/'.$name))
 		{
 			return true;
 		}

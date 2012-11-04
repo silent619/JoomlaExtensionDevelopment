@@ -82,15 +82,11 @@ class PlgSystemShowpath extends JPlugin
 		// get current template
 		$tmpl = $app->getTemplate();
 		
-		// import jfolder
-		jimport('joomla.filesystem.path');
-		jimport('joomla.filesystem.folder');
-		
 		// set the path string
 		$pathString = $this->makePath($path);
 		
 		// check for override
-		if (JFolder::exists('templates/'.$tmpl.'/html/'.$pathString))
+		if (is_dir('templates/'.$tmpl.'/html/'.$pathString))
 		{
 			return true;
 		}
@@ -125,7 +121,7 @@ class PlgSystemShowpath extends JPlugin
 		
 		$pathstring = $this->makePath($path);
 			
-		if (self::isOverridden($path))
+		if ($this->isOverridden($path))
 		{
 			$pathstring = 'templates/'.$tmpl.'/html/'.$pathstring;
 		}
