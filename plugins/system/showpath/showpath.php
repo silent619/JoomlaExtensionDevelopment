@@ -3,7 +3,7 @@
  * @package     ShowPath.Plugin
  * @subpackage  ShowPath
  *
- * @copyright   Copyright Chad Windnagle - 2012
+ * @copyright   2012 - Copyright Chad Windnagle
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -27,110 +27,127 @@ class PlgSystemShowpath extends JPlugin
 	 *
 	 * @since   1.0
 	 */
-
-	 
 	public function onBeforeRender()
-	{	
+	{
 		$app = JFactory::getApplication();
-		
+
 		// Check that we are in the site application.
 		if ($app->isAdmin())
 		{
 			return true;
 		}
-		
-			//override the core module classes
-			require_once(__DIR__.'/class_override/module.php');
-			require_once(__DIR__.'/class_override/modules.php');
-			
-			//get the component path and output
-			$pathArr = $this->getComponentPath();
-			$pathStr = $this->getPath($pathArr);
-					
-			echo '<pre>Component View path: ' . $pathStr .'</pre>';
-		
+
+		// Override the core module classes
+		require_once __DIR__ . '/class_override/module.php';
+		require_once __DIR__ . '/class_override/modules.php';
+
+		// Get the component path and output
+		$pathArr = $this->getComponentPath();
+		$pathStr = $this->getPath($pathArr);
+
+		echo '<pre>Component View path: ' . $pathStr . '</pre>';
+
 		return true;
 	}
-	
-	
-	// function which builds a component path array
-	public function getComponentPath() {
-		
-		// get the app
+
+	/**
+	 * Function which builds a component path array
+	 *
+	 * @return string
+	 */
+	public function getComponentPath()
+	{
+
+		// Get the app
 		$app = JFactory::getApplication();
-		
-		// get the option, view, and layout.
+
+		// Get the option, view, and layout.
 		$option = $app->input->get('option', '', 'cmd');
-		$view =  $app->input->get('view', '', 'cmd');
+		$view   = $app->input->get('view', '', 'cmd');
 		$layout = $app->input->get('layout', '', 'cmd');
-		
-		// return array of these to be used later
+
+		// Return array of these to be used later
 		$path = array(
-			'path' => $option,
-			'view' => $view,
+			'path'   => $option,
+			'view'   => $view,
 			'layout' => $layout
 		);
-		
+
 		return $path;
 	}
-	
+
+	/**
+	 * Check if an overriden path exists
+	 *
+	 * @param   array  $path  Array with current option, view and layout
+	 *
+	 * @return boolean
+	 */
 	public function isOverridden($path)
 	{
-		// get the app
+		// Get the app
 		$app = JFactory::getApplication();
-		
-		// get current template
+
+		// Get current template
 		$tmpl = $app->getTemplate();
-		
-		// set the path string
+
+		// Set the path string
 		$pathString = $this->makePath($path);
-		
-		// check for override
-		if (is_dir('templates/'.$tmpl.'/html/'.$pathString))
+
+		// Check for override
+		if (is_dir('templates/' . $tmpl . '/html/' . $pathString))
 		{
 			return true;
 		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
-	
+
+	/**
+	 * Simple function that converts the option, view, and layout to a path
+	 *
+	 * @param   array  $path  Array with current option, view and layout
+	 *
+	 * @return string
+	 */
 	public function makePath($path)
 	{
 		$pathstring = '';
-		
-		foreach($path as $dir)
+
+		foreach ($path as $dir)
 		{
 			$pathstring .= $dir . '/';
 		}
-		
+
 		return $pathstring;
 	}
-	
-	// simple function that converts the
-	// option, view, and layout to a path
+
+	/**
+	 * Get the component path
+	 *
+	 * @param   array  $path  Array with current option, view and layout
+	 *
+	 * @return string
+	 */
 	public function getPath($path)
 	{
-		
-		// get the app
+
+		// Get the app
 		$app = JFactory::getApplication();
-		
-		// get current template
+
+		// Get current template
 		$tmpl = $app->getTemplate();
-		
+
 		$pathstring = $this->makePath($path);
-			
+
 		if ($this->isOverridden($path))
 		{
-			$pathstring = 'templates/'.$tmpl.'/html/'.$pathstring;
+			$pathstring = 'templates/' . $tmpl . '/html/' . $pathstring;
 		}
 		else
 		{
-			$pathstring = 'components/'.$pathstring;
+			$pathstring = 'components/' . $pathstring;
 		}
-				
-		return $pathstring;	
-	}
 
+		return $pathstring;
+	}
 }
