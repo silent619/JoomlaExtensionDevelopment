@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+p {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+h3 {
+	font-family:Arial, Helvetica, sans-serif;	
+}
+.keytitle {
+	font-weight: bold;
+	font-size:14px;
+	color:#360;
+}
+.key {
+	font-size:14px;	
+	font-family:Arial, Helvetica, sans-serif;
+	padding: 0 20px 0 10px;
+}
+
+a {
+	color:#360;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+a:hover {
+	color: #099;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;	
+}
+td {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	border-bottom-style:solid;
+	border-bottom-color: #CCC;
+	border-bottom-width:thin;
+	vertical-align:bottom;
+}
+tr.tblhd td{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	text-align:center;
+	background-color:#630;
+	color:#FFF;
+	padding-left:3px;
+	padding-right:3px;
+	line-height: normal;
+}
+td a {
+	cursor:pointer;
+}
+form{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;	
+}
+table {
+	line-height:1.5;
+}
