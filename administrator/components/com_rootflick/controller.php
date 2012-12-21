@@ -11,10 +11,10 @@
 defined('_JEXEC') or die;
 
 /**
- * Base controller class for Users.
+ * Base controller class for RootFlick.
  *
- * @package		Joomla.Site
- * @subpackage	com_users
+ * @package		Joomla.Site.Admin
+ * @subpackage	com_rootflick
  * @since		1.5
  */
  
