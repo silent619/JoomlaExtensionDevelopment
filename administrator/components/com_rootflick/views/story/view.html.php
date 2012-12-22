@@ -18,20 +18,30 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the HelloWorld Component
  */
-class RootflickViewRootflick extends JViewLegacy
+class RootflickViewStory extends JViewLegacy
 {
+
+	protected $item; 
+	protected $form;
+	
 	// Overwriting JView display method
 	function display($tpl = null) 
 	{	
-		$this->items		= $this->get('Items');
+		
+		$this->form = $this->get('Form');
+		
 		$this->addToolbar();
 		parent::display($tpl);
 	}
 	
 	protected function addToolbar()
-	{	
+	{
 		JToolbarHelper::title(JText::_('COM_ROOTFLICK_CP_TITLE'), 'article.png');
-		JToolbarHelper::addNew('story.add');
+		//JToolbarHelper::apply('article.apply');
+		JToolbarHelper::save('story.save');
+		//JToolbarHelper::save2new('article.save2new');
+		//JToolbarHelper::cancel('article.cancel');
+
 	}
 	
 }
