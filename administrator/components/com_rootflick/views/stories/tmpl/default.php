@@ -23,7 +23,7 @@ JHtml::_('formbehavior.chosen', 'select');
 		<h3>My main area</h3>
 		<ul>
 		<?php foreach ($this->items as $item): ?>
-			<li><?php echo $item->name;?></li>
+			<li><a href="<?php echo $item->url; ?>"><?php echo $item->name; ?></a></li>
 		<?php endforeach; ?>
 		</ul>
 	</div>

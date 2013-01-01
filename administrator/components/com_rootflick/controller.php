@@ -26,14 +26,5 @@ $doc = JFactory::getDocument();
  
 class RootflickController extends JControllerLegacy
 {
-	public function display($cachable = false, $urlparams = false)
-	{
-		$view   = $this->input->get('view', 'story');
-		$layout = $this->input->get('layout', 'default');
-		$id     = $this->input->getInt('id');
-		
-		parent::display();
-		
-		return $this;
-	}
+
 }

@@ -17,20 +17,10 @@ defined('_JEXEC') or die;
  * @subpackage	com_rootflick
  * @since		1.5
  */
- 
- // add the stylesheet
- 
- 
-$doc = JFactory::getDocument();
 
+jimport('joomla.application.controllerform');
  
-class RootflickControllerStory extends JControllerLegacy
+class RootflickControllerStory extends JControllerForm
 {
-	public function display($cachable = false, $urlparams = false)
-	{
-		
-		parent::display();
-
-	}
-
+	protected $view_list = 'stories';
 }

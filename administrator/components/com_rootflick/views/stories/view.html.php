@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the HelloWorld Component
  */
-class RootflickViewRootflick extends JViewLegacy
+class RootflickViewStories extends JViewLegacy
 {
 	protected $items;
 	

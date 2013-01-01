@@ -27,11 +27,8 @@ class RootflickViewStory extends JViewLegacy
 	// Overwriting JView display method
 	function display($tpl = null) 
 	{	
-		$this->form = $this->get('Form');
 		$this->item = $this->get('Item');
-		
-		var_dump($this->item);
-		//exit();
+		$this->form = $this->get('Form');
 		
 		$this->addToolbar();
 		
@@ -41,11 +38,17 @@ class RootflickViewStory extends JViewLegacy
 	
 	protected function addToolbar()
 	{
-		JToolbarHelper::title(JText::_('COM_ROOTFLICK_CP_TITLE'), 'article.png');
-		//JToolbarHelper::apply('article.apply');
+		if ($this->item->id) {
+			JToolbarHelper::title(JText::_('COM_ROOTFLICK_ITEM_EDIT'));
+		} 
+		else {
+			JToolbarHelper::title(JText::_('COM_ROOTFLICK_ITEM_NEW'));
+		}
+		
+		JToolbarHelper::apply('story.apply');
 		JToolbarHelper::save('story.save');
-		//JToolbarHelper::save2new('article.save2new');
-		//JToolbarHelper::cancel('article.cancel');
+		JToolbarHelper::save2new('story.save2new');
+		JToolbarHelper::cancel('story.cancel');
 
 	}
 	

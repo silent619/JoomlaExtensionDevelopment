@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * @package     Joomla.Administrator
  * @subpackage  com_categories
@@ -18,9 +18,21 @@ class RootflickModelStory extends JModelAdmin
 		return JTable::getInstance($type, $prefix, $config);
 	}
 	
+	protected function loadFormData()
+	{
+		$data = JFactory::getApplication()->getUserState('com_rootflick.edit.story.data', array());
+		
+		if (empty($data)) {
+			$data = $this->getItem();
+		}
+		
+		return $data;
+	}
+	
 	public function getForm($data=array(), $loadData=true)
 	{
-		$form = $this->loadForm('com_rootflick.story', 'story', array('control'=>'jform', 'loadData'=>$loadData));
+		$form = $this->loadForm('com_rootflick.story', 'story', array('control'=>'jform', 'load_data'=>$loadData));
 		return $form;
 	}
+	
 }

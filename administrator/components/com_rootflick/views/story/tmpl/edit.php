@@ -27,7 +27,7 @@ JHtml::_('formbehavior.chosen', 'select');
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
-</script>
+</script>  
 
 
 <div id="j-sidebar-container" class="span2">
