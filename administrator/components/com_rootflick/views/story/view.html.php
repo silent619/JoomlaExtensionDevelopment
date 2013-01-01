@@ -27,11 +27,16 @@ class RootflickViewStory extends JViewLegacy
 	// Overwriting JView display method
 	function display($tpl = null) 
 	{	
-		
 		$this->form = $this->get('Form');
+		$this->item = $this->get('Item');
+		
+		var_dump($this->item);
+		//exit();
 		
 		$this->addToolbar();
+		
 		parent::display($tpl);
+		
 	}
 	
 	protected function addToolbar()

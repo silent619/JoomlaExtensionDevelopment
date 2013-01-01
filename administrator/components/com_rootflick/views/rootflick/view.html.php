@@ -24,6 +24,9 @@ class RootflickViewRootflick extends JViewLegacy
 	function display($tpl = null) 
 	{	
 		$this->items		= $this->get('Items');
+		//$this->item 		= $this->get('Item');
+		
+		var_dump($this->items);
 		$this->addToolbar();
 		parent::display($tpl);
 	}

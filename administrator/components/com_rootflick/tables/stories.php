@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  com_categories
  * @since       1.6
  */
-class RootflickTableStory extends JTable
+class RootflickTableStories extends JTable
 {	
 	/**
 	 * Constructor
@@ -27,21 +27,18 @@ class RootflickTableStory extends JTable
 	{	
 		parent::__construct('#__rootflick_stories', 'id', $_db);
 		$date = JFactory::getDate();
-		$this->publish_up = $date->toSql();
-		$this->publish_down = $date->toSql();
 	}
-	/*public function delete($pk = null, $children = false)
+	protected function getListQuery()
 	{
-		return parent::delete($pk, $children);
-	}*/
-	
-	public function bind($array, $ignore = array())
-	{
-		return parent::bind($array, $ignore);
+		$query->select(*);
+		$query->from($db->quoteName('#__rootflick_stories'));
+		
+		return $query;
+		
 	}
 	
-	public function store($updateNulls = false)
+	public function getTable($type = 'Stories', $prefix = 'RootflickTable', $config = array())
 	{
-		parent::store($updateNulls);
+		return JTable::getInstance($type, $prefix, $config);
 	}
 }
