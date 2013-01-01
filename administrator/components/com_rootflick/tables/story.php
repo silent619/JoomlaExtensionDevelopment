@@ -23,25 +23,8 @@ class RootflickTableStory extends JTable
 	 *
 	 * @since	1.5
 	 */
-	public function __construct(&$_db)
+	public function __construct(&$db)
 	{	
-		parent::__construct('#__rootflick_stories', 'id', $_db);
-		$date = JFactory::getDate();
-		$this->publish_up = $date->toSql();
-		$this->publish_down = $date->toSql();
-	}
-	/*public function delete($pk = null, $children = false)
-	{
-		return parent::delete($pk, $children);
-	}*/
-	
-	public function bind($array, $ignore = array())
-	{
-		return parent::bind($array, $ignore);
-	}
-	
-	public function store($updateNulls = false)
-	{
-		parent::store($updateNulls);
+		parent::__construct('#__rootflick_stories', 'id', $db);
 	}
 }
