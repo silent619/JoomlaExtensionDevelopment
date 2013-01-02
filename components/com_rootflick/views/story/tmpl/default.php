@@ -11,6 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 ?>
-<h3>Root Flick Stories View Working!</h3>
+<h3><?php echo $this->item->name;?></h3>
+<p>Use the timeline to select a chapter</p>
+LIST OF CHAPTERS HERE
 
-<h1><?php echo $this->item->name;?></h1>

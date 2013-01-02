@@ -15,6 +15,8 @@ defined('_JEXEC') or die('Direct Access to this location is not allowed.');
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
+JLoader::register('RootflickHelper', __DIR__ . '/helpers/rootflick.php');
+
 // Get an instance of the controller prefixed by HelloWorld
 $controller = JControllerLegacy::getInstance('Rootflick');
 

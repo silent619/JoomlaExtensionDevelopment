@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the HelloWorld Component
  */
-class RootflickViewStories extends JViewLegacy
+class RootflickViewChapters extends JViewLegacy
 {
 	protected $items;
 	
@@ -26,7 +26,7 @@ class RootflickViewStories extends JViewLegacy
 	function display($tpl = null) 
 	{	
 		
-		RootflickHelper::addSubmenu('stories');
+		RootflickHelper::addSubmenu('chapters');
 		$this->items = $this->get('Items');
 		$this->addToolbar();
 		$this->sidebar = JHtmlSidebar::render();
@@ -36,10 +36,9 @@ class RootflickViewStories extends JViewLegacy
 	protected function addToolbar()
 	{	
 		JToolbarHelper::title(JText::_('COM_ROOTFLICK_CP_TITLE'), 'article.png');
-		JToolbarHelper::addNew('story.add');
+		JToolbarHelper::addNew('chapter.add');
 		
-		JHtmlSidebar::setAction('index.php?option=com_rootflick&view=stories');
-		//JHtmlSidebar::setAction('index.php?option=com_rootflick&view=stories');
+		JHtmlSidebar::setAction('index.php?option=com_rootflick&view=chapters');
 	}
 	
 }

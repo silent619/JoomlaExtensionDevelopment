@@ -15,7 +15,7 @@ JHtml::_('behavior.multiselect');
 JHtml::_('formbehavior.chosen', 'select');
 
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_rootflick&view=story'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_rootflick&view=chapter'); ?>" method="post" name="adminForm" id="adminForm">
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
 	</div>
@@ -29,9 +29,8 @@ JHtml::_('formbehavior.chosen', 'select');
 					<th width="1%" class="nowrap center">
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 					</th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_TITLE'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_PUBLISH_UP'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_PUBLISH_DOWN'); ?></th>
+					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_ChAPTER_NAME'); ?></th>
+					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_STORY_NAME'); ?></th>
 					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_ID'); ?></th>
 				</tr>
 			</thead>
@@ -39,21 +38,18 @@ JHtml::_('formbehavior.chosen', 'select');
 				<?php foreach ($this->items as $i => $item) : ?>
 					<tr class="row<?php echo $i % 2; ?>">
 						<td class="center hidden-phone">
-							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+							<?php echo JHtml::_('grid.id', $i, $item->chapter_id); ?>
 						</td>
 						<td>
 							<a href="<?php echo $item->url;?>">
-								<?php echo $this->escape($item->name); ?>
+								<?php echo $this->escape($item->chapter_name); ?>
 							</a>
 						</td>
 						<td>
-							<?php echo JHtml::_('date', $item->publish_up, JText::_('DATE_FORMAT_LC4')); ?>
+							<?php echo $item->story_name; ?>
 						</td>
 						<td>
-							<?php echo JHtml::_('date', $item->publish_down, JText::_('DATE_FORMAT_LC4')); ?>
-						</td>
-						<td>
-							<?php echo (int) $item->id; ?>
+							<?php echo $item->chapter_id; ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
