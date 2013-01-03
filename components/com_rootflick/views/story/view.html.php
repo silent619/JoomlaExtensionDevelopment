@@ -19,11 +19,13 @@ jimport('joomla.application.component.view');
 class RootflickViewStory extends JViewLegacy
 {
 	protected $item;
+	protected $chapters;
 	
 	// Overwriting JView display method
 	function display($tpl = null) 
 	{
 		$this->item = $this->get('Item');
+		$this->chapters = $this->get('Chapters');
 		parent::display($tpl);
 	}
 }

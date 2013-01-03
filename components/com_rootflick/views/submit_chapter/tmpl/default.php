@@ -15,5 +15,3 @@ defined('_JEXEC') or die('Restricted access');
 <p>Use the timeline to select a chapter</p>
 LIST OF CHAPTERS HERE
 
-
-<?php echo $this->loadTemplate('chapters'); ?>
