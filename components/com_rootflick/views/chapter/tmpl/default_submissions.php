@@ -11,8 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 ?>
-<h2><?php echo $this->item->name;?></h2>
-<p>Use the timeline to select a chapter</p>
-<?php echo $this->loadTemplate('chapters'); ?>
 
-<a href="index.php?option=com_rootflick&view=stories">Back to stories...</a>
+<?php foreach ($this->submits as $submit): ?>
+	<pre><?php print_r($submit); ?></pre>
+<?php endforeach; ?>

@@ -11,7 +11,7 @@ class RootflickModelStory extends JModelLegacy
 		
 		$row = JTable::getInstance('story', 'RootflickTable');
 		
-		print_r($row);
+		$row->load($id);
 		
 		return $row;
 	}
@@ -27,8 +27,13 @@ class RootflickModelStory extends JModelLegacy
 		$query->where('story_id='.$story_id);
 		$db->setQuery($query);
 		
-		$results = $db->loadObjectList();
+		$chapters = $db->loadObjectList();
 		
-		return $results;
+		foreach ($chapters as $chapter) 
+		{
+			$chapter->url = 'index.php?option=com_rootflick&view=chapter&cid=' . $chapter->id . '&sid='.$story_id;
+		}
+		
+		return $chapters;
 	}
 }
