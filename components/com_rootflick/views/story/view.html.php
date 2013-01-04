@@ -25,6 +25,7 @@ class RootflickViewStory extends JViewLegacy
 	function display($tpl = null) 
 	{
 		$this->item = $this->get('Item');
+		
 		$this->chapters = $this->get('Chapters');
 		parent::display($tpl);
 	}

@@ -7,9 +7,12 @@ class RootflickModelStory extends JModelLegacy
 {
 	public function getItem()
 	{
-		$id = JFactory::getApplication()->input->getInt('id', 1);
+		$id = JFactory::getApplication()->input->get('id');
 		
 		$row = JTable::getInstance('story', 'RootflickTable');
+		
+		print_r($row);
+		
 		return $row;
 	}
 	
@@ -21,10 +24,10 @@ class RootflickModelStory extends JModelLegacy
 		
 		$query->select('*');
 		$query->from('#__rootflick_chapters');
-		//$query->where('story_id='.$story_id);
+		$query->where('story_id='.$story_id);
 		$db->setQuery($query);
 		
-		$results = $db->loadObject();
+		$results = $db->loadObjectList();
 		
 		return $results;
 	}

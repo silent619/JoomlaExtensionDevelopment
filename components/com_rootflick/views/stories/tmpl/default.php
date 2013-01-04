@@ -25,7 +25,7 @@ defined('_JEXEC') or die('Restricted access');
 	</thead>
 	<tbody>
 		<?php foreach($this->items as $item): ?>
-			<?php $url = 'index.php?option=com_rootflick&view=story&id='. $item->id . '&chapter_id=1'; ?>
+			<?php $url = 'index.php?option=com_rootflick&view=story&id='. $item->id; ?>
 			<tr>
 				<td><a href="<?php echo $url;?>"><?php echo $item->name; ?></a> </td>
 				<td><?php echo $item->publish_up; ?></td>
