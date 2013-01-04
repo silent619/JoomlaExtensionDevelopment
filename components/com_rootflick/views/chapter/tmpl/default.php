@@ -26,7 +26,7 @@ $story_id = JFactory::getApplication()->input->getInt('sid');
 		This chapter has not yet had a winner. Vote now!
 	</div>
 <?php endif; ?>
-
+<h3>Other Submissions</h3>
 <?php echo $this->loadTemplate('submissions'); ?>
 
 

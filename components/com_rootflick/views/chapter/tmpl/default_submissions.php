@@ -13,5 +13,10 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <?php foreach ($this->submits as $submit): ?>
-	<pre><?php print_r($submit); ?></pre>
+	<div class="span3">
+		<div class="well well-small">
+			<h5><?php echo $submit->name; ?></h5>
+		</div>
+	</div>
 <?php endforeach; ?>
+<div class="clearfix"></div>
