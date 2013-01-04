@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	
+		<field name="id"  type="hidden" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true"  />
+
+		<field name="name" type="text" label="JGLOBAL_TITLE"
+			description="JFIELD_TITLE_DESC" class="inputbox" size="30"
+			required="true" labelclass="control-label" />
+
+		<field name="alias" type="text" label="JFIELD_ALIAS_LABEL"
+			description="JFIELD_ALIAS_DESC" class="inputbox" size="45" labelclass="control-label" />
+
+		<field name="description" type="editor" class="inputbox"
+			label="COM_CONTENT_FIELD_ARTICLETEXT_LABEL" description="COM_CONTENT_FIELD_ARTICLETEXT_DESC"
+			filter="JComponentHelper::filterText" buttons="true" />
+		
+		<field name="video" type="textarea" class="inputbox"
+			label="COM_ROOTFLICK_FIELD_VIDEO_LABEL" description="COM_ROOTFLICK_FIELD_VIDEO_DESC" />
+			
+		<field name="image" type="media"
+			label="COM_ROOTFLICK_FIELD_IMAGE" description="COM_ROOTFLICK_FIELD_IMAGE_DESC" 
+			directory="images" class="inputbox" />
+
+		<field name="user" type="hidden" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true" />
+		
+</form>

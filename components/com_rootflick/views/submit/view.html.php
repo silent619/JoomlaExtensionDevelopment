@@ -16,14 +16,16 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
 
-class RootflickViewStory extends JViewLegacy
+class RootflickViewSubmit extends JViewLegacy
 {
 	protected $item;
+	protected $form;
 	
 	// Overwriting JView display method
 	function display($tpl = null) 
 	{
 		$this->item = $this->get('Item');
+		$this->form = $this->get('Form');
 		parent::display($tpl);
 	}
 }
