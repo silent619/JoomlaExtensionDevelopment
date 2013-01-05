@@ -20,12 +20,17 @@ class RootflickViewSubmit extends JViewLegacy
 {
 	protected $item;
 	protected $form;
+	public $chapter_id;
+	
 	
 	// Overwriting JView display method
 	function display($tpl = null) 
 	{
+		echo "view is working";
 		$this->item = $this->get('Item');
 		$this->form = $this->get('Form');
+		$this->chapter_id = JFactory::getApplication()->input->getInt('cid', 1);
+		
 		parent::display($tpl);
 	}
 }

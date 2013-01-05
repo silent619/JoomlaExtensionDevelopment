@@ -52,7 +52,6 @@ JHtml::_('formbehavior.chosen', 'select');
 				<?php endforeach ?>
 			</ul>
 		</fieldset>
-	<input type="hidden" name="chapter_id" value="<?php echo $this->item->chapter_id; ?>" />
 	<input type="hidden" name="task" value="" />
 	<?php echo JHtml::_('form.token'); ?>
 </form>

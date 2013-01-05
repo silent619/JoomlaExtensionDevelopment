@@ -29,6 +29,6 @@ $story_id = JFactory::getApplication()->input->getInt('sid');
 <h3>Other Submissions</h3>
 <?php echo $this->loadTemplate('submissions'); ?>
 
-<a href="index.php?option=com_rootflick&view=submit&layout=edit">Submit Video For This Chapter</a>
+<a href="index.php?option=com_rootflick&view=submit&layout=edit&cid=<?php echo $this->item->id; ?>">Submit Video For This Chapter</a>
 <br />
 <a href="index.php?option=com_rootflick&view=story&id=<?php echo $story_id;?>">Back to story...</a>

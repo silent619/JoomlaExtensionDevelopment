@@ -23,8 +23,6 @@
 			label="COM_ROOTFLICK_FIELD_IMAGE" description="COM_ROOTFLICK_FIELD_IMAGE_DESC" 
 			directory="images" class="inputbox" />
 
-		<field name="user" type="hidden" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
-			description="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
-			readonly="true" />
+		
 		
 </form>
