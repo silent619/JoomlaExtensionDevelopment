@@ -23,6 +23,10 @@
 			label="COM_ROOTFLICK_FIELD_IMAGE" description="COM_ROOTFLICK_FIELD_IMAGE_DESC" 
 			directory="images" class="inputbox" />
 
+		<field name="user_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_USERID_LABEL"
+			description="COM_ROOTFLICK_FIELD_USERID_DESC"  />
 		
+		<field name="chapter_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_CHAPTERID_LABEL"
+			description="COM_ROOTFLICK_FIELD_CHAPTERID_DESC" />
 		
 </form>

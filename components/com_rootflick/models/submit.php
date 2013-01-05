@@ -28,6 +28,7 @@ class RootflickModelSubmit extends JModelAdmin
 		
 		return $data;
 	}
+
 	
 	public function getForm($data=array(), $loadData=true)
 	{
