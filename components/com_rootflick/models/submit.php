@@ -15,7 +15,7 @@ class RootflickModelSubmit extends JModelAdmin
 {
 	public function getTable($type='Submit', $prefix='RootflickTable', $config = array())
 	{
-		return JTable::getInstance($type, $prefix, $config);
+		$row = JTable::getInstance($type, $prefix, $config);
 	}
 	
 	protected function loadFormData()
@@ -35,5 +35,6 @@ class RootflickModelSubmit extends JModelAdmin
 		$form = $this->loadForm('com_rootflick.submit', 'submit', array('control'=>'jform', 'load_data'=>$loadData));
 		return $form;
 	}
+	
 	
 }

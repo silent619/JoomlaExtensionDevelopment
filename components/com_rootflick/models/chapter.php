@@ -23,8 +23,9 @@ class RootflickModelChapter extends JModelLegacy
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
 		
-		$query->select('*');
-		$query->from('#__rootflick_submissions');
+		$query->select('a.*, i.username');
+		$query->from('#__rootflick_submissions as a');
+		$query->join('LEFT', '#__users as i ON (a.user_id = i.id)');
 		$query->where('chapter_id='.$cid . ' and winner = 0');
 		$db->setQuery($query);
 		

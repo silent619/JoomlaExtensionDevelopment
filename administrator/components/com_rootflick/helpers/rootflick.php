@@ -31,6 +31,11 @@ class RootflickHelper
 	public static function addSubmenu($vName)
 	{
 		JHtmlSidebar::addEntry(
+				JText::_('COM_ROOTFLICK_SUBMENU_CP'),
+				'index.php?option=com_rootflick',
+				$vName == 'rootflick'
+		);
+		JHtmlSidebar::addEntry(
 			JText::_('COM_ROOTFLICK_SUBMENU_STORIES'),
 			'index.php?option=com_rootflick&view=stories',
 			$vName == 'stories'
@@ -41,8 +46,8 @@ class RootflickHelper
 			$vName == 'chapters');
 		JHtmlSidebar::addEntry(
 			JText::_('COM_ROOTFLICK_SUBMENU_SUBMISSIONS'),
-			'index.php?option=com_rootflick&view=submissions',
-			$vName == 'submissions'
+			'index.php?option=com_rootflick&view=submits',
+			$vName == 'submits'
 		);
 	}
 	

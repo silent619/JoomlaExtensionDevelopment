@@ -10,23 +10,26 @@
 			required="true" labelclass="control-label" />
 
 		<field name="alias" type="text" label="JFIELD_ALIAS_LABEL"
-			description="JFIELD_ALIAS_DESC" class="inputbox" size="45" labelclass="control-label" />
+			description="JFIELD_ALIAS_DESC" class="inputbox" size="45" labelclass="control-label" required="true" />
 
 		<field name="description" type="editor" class="inputbox"
 			label="COM_CONTENT_FIELD_ARTICLETEXT_LABEL" description="COM_CONTENT_FIELD_ARTICLETEXT_DESC"
-			filter="JComponentHelper::filterText" buttons="true" />
+			filter="JComponentHelper::filterText" buttons="true" required="true" />
 		
 		<field name="video" type="textarea" class="inputbox"
-			label="COM_ROOTFLICK_FIELD_VIDEO_LABEL" description="COM_ROOTFLICK_FIELD_VIDEO_DESC" />
+			label="COM_ROOTFLICK_FIELD_VIDEO_LABEL" required="true" description="COM_ROOTFLICK_FIELD_VIDEO_DESC" />
 			
 		<field name="image" type="media"
 			label="COM_ROOTFLICK_FIELD_IMAGE" description="COM_ROOTFLICK_FIELD_IMAGE_DESC" 
-			directory="images" class="inputbox" />
+			directory="images" class="inputbox" required="true" />
 
-		<field name="user_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_USERID_LABEL"
-			description="COM_ROOTFLICK_FIELD_USERID_DESC"  />
+		<field name="user_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_USER_ID_LABEL"
+			description="COM_ROOTFLICK_FIELD_USER_ID_DESC"  />
 		
-		<field name="chapter_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_CHAPTERID_LABEL"
-			description="COM_ROOTFLICK_FIELD_CHAPTERID_DESC" />
+		<field name="chapter_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_CHAPTER_ID_LABEL"
+			description="COM_ROOTFLICK_FIELD_CHAPTER_ID_DESC" />
+			
+		<field name="submit_date" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_SUBMIT_DATE_LABEL"
+			description="COM_ROOTFLICK_FIELD_SUBMIT_DATE_DESC" />
 		
 </form>

@@ -52,6 +52,7 @@ JHtml::_('formbehavior.chosen', 'select');
 				<?php endforeach ?>
 			</ul>
 		</fieldset>
+	<input type="hidden" name="jform[submit_date]" id="jform_submit_date" value="<?php echo JFactory::getDate(); ?>" />
 	<input type="hidden" name="jform[user_id]" id="jform_user_id" value="<?php echo JFactory::getUser()->id; ?>" />
 	<input type="hidden" name="jform[chapter_id]" id="jform_chapter_id" value="<?php echo JFactory::getApplication()->input->getInt('cid'); ?>" />
 	<input type="hidden" name="task" value="" />
