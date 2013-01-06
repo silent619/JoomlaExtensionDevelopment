@@ -51,7 +51,8 @@ defined('_JEXEC') or die('Restricted access');
 				</div>
 			</div>
 		</div>
-		<a href="index.php?option=com_rootflick&task=vote.vote&sid=<?php echo $submit->id;?>">Submit Vote</a>
+		<a href="index.php?option=com_rootflick&task=vote.vote&sid=<?php echo $submit->id;?>" class="btn">Submit Vote</a>
+		<span class="label label-info"><span class="badge badge-inverse"><?php echo $submit->vote?></span>Votes</span>
 	</div>
 </div>
 <?php endforeach; ?>

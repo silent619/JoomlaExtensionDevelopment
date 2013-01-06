@@ -28,9 +28,22 @@ class RootflickModelChapter extends JModelLegacy
 		$query->join('LEFT', '#__users as i ON (a.user_id = i.id)');
 		$query->where('chapter_id='.$cid . ' and winner = 0');
 		$db->setQuery($query);
-		
 		$submits = $db->loadObjectList();
 		
+		// loop through the submits to add in the votes.
+		// this is probably not very great performance wise.
+		// really hoping to find a way to optimise this.
+		foreach($submits as $submit){
+			$db = $this->getDbo();
+			$query = $db->getQuery(true);
+			
+			$query->select('sum(vote)');
+			$query->from('#__rootflick_vote');
+			$query->where('sub_id ='.$submit->id);
+			$db->setQuery($query);
+			$result = $db->loadRow();
+			$submit->vote = $result[0];
+		}
 		return $submits;
 	}
 	
