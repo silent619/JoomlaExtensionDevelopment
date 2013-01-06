@@ -48,7 +48,7 @@ class RootflickControllerVote extends JControllerForm
 		if (!$this->allowAdd())
 		{
 				
-			$this->setMessage('Your vote was not submitted. ' . $vote_message, 'error');
+			$this->setMessage('Your vote was not submitted. ' . $this->vote_message, 'error');
 
 			$this->setRedirect(
 					JRoute::_(
@@ -60,7 +60,7 @@ class RootflickControllerVote extends JControllerForm
 			return false;
 		}
 		$model->vote($user->id, $submission_id, $vote_type);
-		$this->setMessage('Vote submitted Successfully' . $vote_message);
+		$this->setMessage('Vote submitted Successfully' . $this->vote_message);
 		$this->setRedirect(
 				JRoute::_(
 						'index.php?option=' . $this->option . '&view=' . $this->view_list
@@ -90,7 +90,7 @@ class RootflickControllerVote extends JControllerForm
 		if ($doubleVote)
 		{
 			$allow = false;
-			$this->vote_message = 'you cannot vote for the same entry twice!';
+			$this->vote_message = 'You cannot vote for the same entry twice!';
 		}	
 
 		return $allow;
