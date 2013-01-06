@@ -16,5 +16,19 @@ class RootflickModelVote extends JModelList
 		$item->vote_type	=	$level;
 		$item->vote			=	1;
 		$item->store();
-	}	
+	}
+	
+	public function checkVotes($user_id, $submission_id)
+	{
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+		
+		$query->select('id, user_id, sub_id');
+		$query->from('#__rootflick_vote');
+		$query->where('user_id='.$user_id);
+		$query->where('sub_id='.$submission_id);
+		$db->setQuery($query);
+		$vote = $db->loadObject();
+		return $vote;
+	} 	
 }

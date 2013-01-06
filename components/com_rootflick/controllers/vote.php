@@ -60,7 +60,7 @@ class RootflickControllerVote extends JControllerForm
 			return false;
 		}
 		$model->vote($user->id, $submission_id, $vote_type);
-		$this->setMessage('Vote submitted Successfully');
+		$this->setMessage('Vote submitted Successfully' . $vote_message);
 		$this->setRedirect(
 				JRoute::_(
 						'index.php?option=' . $this->option . '&view=' . $this->view_list
@@ -74,6 +74,7 @@ class RootflickControllerVote extends JControllerForm
 		$user		= JFactory::getUser();
 		$allow		= null;
 		$model = $this->getModel('Vote');
+		$doubleVote = $model->checkVotes($user->id, JFactory::getApplication()->input->getInt('sid'));
 		
 		if ($user->guest)
 		{
@@ -84,7 +85,13 @@ class RootflickControllerVote extends JControllerForm
 			$allow = true;
 		}
 		
-		if ($model->checkVotes($user->id, JFactory::getApplication()->input->getInt('sid')))
+		// check to see if user has submitted vote for this chapter already.
+		//don't allow voting twice by the same user and same submission.
+		if ($doubleVote)
+		{
+			$allow = false;
+			$this->vote_message = 'you cannot vote for the same entry twice!';
+		}	
 
 		return $allow;
 	}
