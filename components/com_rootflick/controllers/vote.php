@@ -1,12 +1,12 @@
 <?php
 /**
- 
- * @package		Joomla25.Bizform
- * @subpackage	Components
- * @author		Chad Windnagle
- * @link		http://www.chadwindnagle.com
- * @license		License GNU General Public License version 2 or later
- */
+
+* @package		Joomla25.Bizform
+* @subpackage	Components
+* @author		Chad Windnagle
+* @link		http://www.chadwindnagle.com
+* @license		License GNU General Public License version 2 or later
+*/
 
 defined('_JEXEC') or die;
 
@@ -20,15 +20,18 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.controller');
 jimport( 'joomla.access.access' );
-class RootflickControllerVote extends JControllerLegacy
+class RootflickControllerVote extends JControllerForm
 {
+	protected $view_list = 'stories';
+	protected $vote_message = '';
+
 	public function __construct($config = array())
 	{
 		parent::__construct($config);
-		
+
 		$this->registerTask('vote', 'vote');
 	}
-	
+
 	public function vote()
 	{
 		$task		= JFactory::getApplication()->input->get('task');
@@ -41,7 +44,48 @@ class RootflickControllerVote extends JControllerLegacy
 		$submission_id = JFactory::getApplication()->input->getInt('sid');
 		$model = $this->getModel('Vote');
 		
+		// check to see if the user is logged in and has the write to vote. 
+		if (!$this->allowAdd())
+		{
+				
+			$this->setMessage('Your vote was not submitted. ' . $vote_message, 'error');
+
+			$this->setRedirect(
+					JRoute::_(
+							'index.php?option=' . $this->option . '&view=' . $this->view_list
+							. $this->getRedirectToListAppend(), false
+					)
+			);
+
+			return false;
+		}
 		$model->vote($user->id, $submission_id, $vote_type);
-		//echo "vote submitted!";
+		$this->setMessage('Vote submitted Successfully');
+		$this->setRedirect(
+				JRoute::_(
+						'index.php?option=' . $this->option . '&view=' . $this->view_list
+						. $this->getRedirectToListAppend(), false
+				)
+		);
+
+	}
+	protected function allowAdd($data = array())
+	{
+		$user		= JFactory::getUser();
+		$allow		= null;
+		$model = $this->getModel('Vote');
+		
+		if ($user->guest)
+		{
+			$allow	= false;
+			$this->vote_message = 'You must be logged in to vote!';
+		}
+		else {
+			$allow = true;
+		}
+		
+		if ($model->checkVotes($user->id, JFactory::getApplication()->input->getInt('sid')))
+
+		return $allow;
 	}
 }
