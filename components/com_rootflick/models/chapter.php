@@ -21,30 +21,16 @@ class RootflickModelChapter extends JModelLegacy
 		$cid = JFactory::getApplication()->input->getInt('cid');
 		
 		$db = $this->getDbo();
-		$query = $db->getQuery(true);
+		$query = $db->getQuery(true);	
 		
 		$query->select('a.*, i.username');
+		$query->select('(SELECT SUM(v.vote) FROM #__rootflick_vote AS v WHERE v.sub_id = a.id) AS vote');
+		//$query->select('(SELECT SUM(v.vote) FROM #__rootflick_vote AS v WHERE v.sub_id = a.id AND v.vote_type=registered) AS registered_vote');
 		$query->from('#__rootflick_submissions as a');
-		$query->join('LEFT', '#__users as i ON (a.user_id = i.id)');
+		$query->leftJoin('#__users as i ON (a.user_id = i.id)');
 		$query->where('chapter_id='.$cid . ' and winner = 0');
-		$db->setQuery($query);
-		$submits = $db->loadObjectList();
-		
-		// loop through the submits to add in the votes.
-		// this is probably not very great performance wise.
-		// really hoping to find a way to optimise this.
-		foreach($submits as $submit){
-			$db = $this->getDbo();
-			$query = $db->getQuery(true);
-			
-			$query->select('sum(vote)');
-			$query->from('#__rootflick_vote');
-			$query->where('sub_id ='.$submit->id);
-			$db->setQuery($query);
-			$result = $db->loadRow();
-			$submit->vote = $result[0];
-		}
-		return $submits;
+ 
+		return $db->setQuery($query)->loadObjectList();
 	}
 	
 	public function getWinner()

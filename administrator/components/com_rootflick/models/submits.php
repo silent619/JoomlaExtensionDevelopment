@@ -18,6 +18,7 @@ class RootflickModelSubmits extends JModelList
 		$query = parent::getListQuery();
 	
 		$query->select('a.*, i.name as chapter_name, i.story_id, e.name as story_name, f.username as username');
+		$query->select('(SELECT SUM(v.vote) FROM #__rootflick_vote AS v WHERE v.sub_id = a.id) AS vote');
 		$query->from('#__rootflick_submissions as a');
 		$query->join('LEFT', '#__rootflick_chapters as i ON (a.chapter_id = i.id)');
 		$query->join('LEFT', '#__rootflick_stories as e ON (i.story_id = e.id)');

@@ -29,9 +29,9 @@ JHtml::_('formbehavior.chosen', 'select');
 					<th width="1%" class="nowrap center">
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 					</th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_ChAPTER_NAME'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_STORY_NAME'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_ID'); ?></th>
+					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_CHAPTERS_TABLE_HEADING_CHAPTER_NAME'); ?></th>
+					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_CHAPTERS_TABLE_HEADING_STORY_NAME'); ?></th>
+					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_CHAPTERS_TABLE_HEADING_ID'); ?></th>
 				</tr>
 			</thead>
 			<tbody>

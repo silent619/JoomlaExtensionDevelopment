@@ -29,12 +29,13 @@ JHtml::_('formbehavior.chosen', 'select');
 					<th width="1%" class="nowrap center">
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 					</th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_SUBMIT_NAME'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_STORY_NAME'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_CHAPTER_NAME'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_USER_NAME'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_DATE'); ?></th>
-					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_LIST_ID'); ?></th>
+					<th width="30%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_SUBMIT_NAME'); ?></th>
+					<th width="20%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_CHAPTER_NAME'); ?></th>
+					<th width="20%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_STORY_NAME'); ?></th>
+					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_USER_NAME'); ?></th>
+					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_VOTES_COUNT'); ?></th>
+					<th width="20%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_SUBMIT_DATE'); ?></th>
+					<th width="9%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_ID'); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -54,6 +55,9 @@ JHtml::_('formbehavior.chosen', 'select');
 						</td>
 						<td>
 							<?php echo $this->escape($item->username); ?>
+						</td>
+						<td>
+							<span class="label label-info"><span class="badge badge-inverse"><?php echo $item->vote?></span>Votes</span>
 						</td>
 						<td>
 							<?php echo JHtml::_('date',$item->submit_date, 'DATE_FORMAT_LC'); ?>

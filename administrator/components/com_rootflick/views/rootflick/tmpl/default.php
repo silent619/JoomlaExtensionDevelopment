@@ -24,20 +24,20 @@ JHtml::_('formbehavior.chosen', 'select');
 		<h3>Manage Rootflick</h3>
 		<div class="span3">
 			<div class="well well-small">
-				<div class="module-title nav-header">Stories</div>
-				<p><a href="index.php?option=com_rootflick&view=stories">Manage Stories</a></p>
+				<div class="module-title nav-header"><?php echo JText::_('COM_ROOTFLICK_CP_HEADING_STORIES')?></div>
+				<p><a href="index.php?option=com_rootflick&view=stories"><?php echo JText::_('COM_ROOTFLICK_CP_LABEL_MANAGE_STORIES'); ?></a></p>
 			</div>
 		</div>
 		<div class="span3">
 			<div class="well well-small">
-				<div class="module-title nav-header">Chapters</div>
-				<p><a href="index.php?option=com_rootflick&view=chapters">Manage Chapters</a></p>
+				<div class="module-title nav-header"><?php echo JText::_('COM_ROOTFLICK_CP_HEADING_CHAPTERS')?></div>
+				<p><a href="index.php?option=com_rootflick&view=chapters"><?php echo JText::_('COM_ROOTFLICK_CP_LABEL_MANAGE_CHAPTERS')?></a></p>
 			</div>
 		</div>
 		<div class="span3">
 			<div class="well well-small">
-				<div class="module-title nav-header">Submissions</div>
-				<p><a href="index.php?option=com_rootflick&view=submits">Manage Submissions</a></p>
+				<div class="module-title nav-header"><?php echo JText::_('COM_ROOTFLICK_CP_HEADING_SUBMISSIONS')?></div>
+				<p><a href="index.php?option=com_rootflick&view=submits"><?php echo JText::_('COM_ROOTFLICK_CP_LABEL_MANAGE_SUBMISSIONS')?></a></p>
 			</div>
 		</div>
 	</div>
