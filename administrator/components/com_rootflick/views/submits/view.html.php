@@ -40,7 +40,7 @@ class RootflickViewSubmits extends JViewLegacy
 	
 	protected function addToolbar()
 	{
-		JToolbarHelper::title(JText::_('COM_ROOTFLICK_ITEM_EDIT'));
+		JToolbarHelper::title(JText::_('COM_ROOTFLICK_SUBMISSIONS_MANAGER'));
 	}
 	
 }

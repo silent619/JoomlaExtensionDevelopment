@@ -16,25 +16,25 @@ JHtml::_('formbehavior.chosen', 'select');
 
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_rootflick&view=submits'); ?>" method="post" name="adminForm" id="adminForm">
-	<div id="j-sidebar-container" class="span2">
+	<div id="j-sidebar-container" class="span3">
 		<?php echo $this->sidebar; ?>
 	</div>
-	<div id="j-main-container" class="span8">
-		<div id="filter-bar" class="btn-toolbar">
+	<div id="j-main-container" class="span9">
+		<!--  <div id="filter-bar" class="btn-toolbar">
 			
-		</div>
+		</div> -->
 		<table class="table table-striped" id="storiesList">
 			<thead>
 				<tr>
 					<th width="1%" class="nowrap center">
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 					</th>
-					<th width="30%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_SUBMIT_NAME'); ?></th>
-					<th width="20%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_CHAPTER_NAME'); ?></th>
-					<th width="20%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_STORY_NAME'); ?></th>
+					<th width="25%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_SUBMIT_NAME'); ?></th>
+					<th width="15%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_CHAPTER_NAME'); ?></th>
+					<th width="15%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_STORY_NAME'); ?></th>
 					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_USER_NAME'); ?></th>
 					<th width="10%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_VOTES_COUNT'); ?></th>
-					<th width="20%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_SUBMIT_DATE'); ?></th>
+					<th width="25%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_SUBMIT_DATE'); ?></th>
 					<th width="9%"><?php echo JText::_('COM_ROOTFLICK_SUBMISSIONS_TABLE_HEADING_ID'); ?></th>
 				</tr>
 			</thead>
@@ -45,7 +45,7 @@ JHtml::_('formbehavior.chosen', 'select');
 							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
 						<td>
-							<?php echo $this->escape($item->name); ?>
+							<a href="<?php echo $item->url; ?>"><?php echo $this->escape($item->name); ?></a>
 						</td>
 						<td>
 							<?php echo $this->escape($item->chapter_name); ?>

@@ -35,7 +35,7 @@ class RootflickViewChapters extends JViewLegacy
 	
 	protected function addToolbar()
 	{	
-		JToolbarHelper::title(JText::_('COM_ROOTFLICK_CP_TITLE'), 'article.png');
+		JToolbarHelper::title(JText::_('COM_ROOTFLICK_CHAPTERS_TITLE'), 'article.png');
 		JToolbarHelper::addNew('chapter.add');
 		
 		JHtmlSidebar::setAction('index.php?option=com_rootflick&view=chapters');

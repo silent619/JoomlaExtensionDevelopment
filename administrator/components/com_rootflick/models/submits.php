@@ -31,7 +31,9 @@ class RootflickModelSubmits extends JModelList
 	public function getItems()
 	{
 		$items = parent::getItems();
-		
+		foreach ($items as $item) {
+			$item->url = 'index.php?option=com_rootflick&amp;task=submit.edit&amp;id=' . $item->id;
+		}
 		return $items;
 	}
 	

@@ -16,12 +16,10 @@ JHtml::_('formbehavior.chosen', 'select');
 
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_rootflick'); ?>" method="post" name="adminForm" id="adminForm">
-	<div id="j-sidebar-container" class="span2">
-		<h3>My sidebar</h3>
+	<div id="j-sidebar-container" class="span3">
 		<?php echo $this->sidebar; ?>
 	</div>
-	<div id="j-main-container" class="span8">
-		<h3>Manage Rootflick</h3>
+	<div id="j-main-container" class="span9">
 		<div class="span3">
 			<div class="well well-small">
 				<div class="module-title nav-header"><?php echo JText::_('COM_ROOTFLICK_CP_HEADING_STORIES')?></div>

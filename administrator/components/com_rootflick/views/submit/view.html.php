@@ -18,28 +18,38 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the HelloWorld Component
  */
-class RootflickViewStories extends JViewLegacy
+class RootflickViewSubmit extends JViewLegacy
 {
-	protected $items;
+
+	protected $item; 
+	protected $form;
 	
 	// Overwriting JView display method
 	function display($tpl = null) 
 	{	
+		$this->item = $this->get('Item');
+		$this->form = $this->get('Form');
 		
-		RootflickHelper::addSubmenu('stories');
-		$this->items = $this->get('Items');
 		$this->addToolbar();
-		$this->sidebar = JHtmlSidebar::render();
+		
 		parent::display($tpl);
+		
 	}
 	
 	protected function addToolbar()
-	{	
-		JToolbarHelper::title(JText::_('COM_ROOTFLICK_STORIES_TITLE'), 'article.png');
-		JToolbarHelper::addNew('story.add');
+	{
+		if ($this->item->id) {
+			JToolbarHelper::title(JText::_('COM_ROOTFLICK_ITEM_EDIT'));
+		} 
+		else {
+			JToolbarHelper::title(JText::_('COM_ROOTFLICK_ITEM_NEW'));
+		}
 		
-		JHtmlSidebar::setAction('index.php?option=com_rootflick&view=stories');
-		//JHtmlSidebar::setAction('index.php?option=com_rootflick&view=stories');
+		JToolbarHelper::apply('submit.apply');
+		JToolbarHelper::save('submit.save');
+		JToolbarHelper::save2new('submit.save2new');
+		JToolbarHelper::cancel('submit.cancel');
+
 	}
 	
 }

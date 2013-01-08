@@ -23,13 +23,22 @@
 			label="COM_ROOTFLICK_FIELD_IMAGE" description="COM_ROOTFLICK_FIELD_IMAGE_DESC" 
 			directory="images" class="inputbox" required="true"  />
 
-		<field name="user_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_USER_ID_LABEL"
+		<field name="user_id" type="field" class="readonly" label="COM_ROOTFLICK_FIELD_USER_ID_LABEL"
 			description="COM_ROOTFLICK_FIELD_USER_ID_DESC"  />
 		
-		<field name="chapter_id" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_CHAPTER_ID_LABEL"
+		<field name="chapter_id" type="field" class="readonly" label="COM_ROOTFLICK_FIELD_CHAPTER_ID_LABEL"
 			description="COM_ROOTFLICK_FIELD_CHAPTER_ID_DESC" />
 			
-		<field name="submit_date" type="hidden" class="readonly" label="COM_ROOTFLICK_FIELD_SUBMIT_DATE_LABEL"
+		<field name="submit_date" type="field" class="readonly" label="COM_ROOTFLICK_FIELD_SUBMIT_DATE_LABEL"
 			description="COM_ROOTFLICK_FIELD_SUBMIT_DATE_DESC" />
 		
+		<field name="winner" type="list" label="JSTATUS"
+			description="COM_ROOTFLICK_FIELD_WINNER" class=" small"
+			filter="intval" size="1"
+		>
+			<option value="0">
+				Not Winner</option>
+			<option value="1">
+				Winner</option>
+		</field>
 </form>

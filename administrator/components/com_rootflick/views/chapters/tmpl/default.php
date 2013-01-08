@@ -16,13 +16,13 @@ JHtml::_('formbehavior.chosen', 'select');
 
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_rootflick&view=chapter'); ?>" method="post" name="adminForm" id="adminForm">
-	<div id="j-sidebar-container" class="span2">
+	<div id="j-sidebar-container" class="span3">
 		<?php echo $this->sidebar; ?>
 	</div>
-	<div id="j-main-container" class="span8">
-		<div id="filter-bar" class="btn-toolbar">
+	<div id="j-main-container" class="span9">
+		<!-- <div id="filter-bar" class="btn-toolbar">
 			
-		</div>
+		</div> -->
 		<table class="table table-striped" id="storiesList">
 			<thead>
 				<tr>
